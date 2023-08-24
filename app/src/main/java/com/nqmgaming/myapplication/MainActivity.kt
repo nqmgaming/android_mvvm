@@ -2,9 +2,7 @@ package com.nqmgaming.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.nqmgaming.myapplication.databinding.ActivityMainBinding
 
@@ -16,13 +14,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.submitButton.setOnClickListener {
-            displayGreeting()
+        binding.controlButton.setOnClickListener {
+            displayProgressBar();
         }
 
     }
 
-    private fun displayGreeting() {
-        binding.greetingTextView.text = "Hello! " + binding.nameEditText.text
+    private fun displayProgressBar() {
+        if (binding.progressCircular.visibility == View.GONE) {
+            binding.progressCircular.visibility = View.VISIBLE
+            binding.controlButton.text = "Stop"
+        } else {
+            binding.progressCircular.visibility = View.GONE
+            binding.controlButton.text = "Start"
+        }
     }
+
+
 }
