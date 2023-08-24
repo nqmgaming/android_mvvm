@@ -21,12 +21,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayProgressBar() {
-        if (binding.progressCircular.visibility == View.GONE) {
-            binding.progressCircular.visibility = View.VISIBLE
-            binding.controlButton.text = "Stop"
-        } else {
-            binding.progressCircular.visibility = View.GONE
-            binding.controlButton.text = "Start"
+        binding.apply {
+            if (progressCircular.visibility == View.GONE) {
+                progressCircular.visibility = View.VISIBLE
+                controlButton.text = "Stop"
+            } else {
+                progressCircular.visibility = View.GONE
+                controlButton.text = "Start"
+            }
         }
     }
 
