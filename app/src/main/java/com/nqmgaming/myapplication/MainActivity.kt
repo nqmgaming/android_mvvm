@@ -13,24 +13,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        binding.controlButton.setOnClickListener {
-            displayProgressBar();
-        }
+        binding.student = getStudent()
 
     }
 
-    private fun displayProgressBar() {
-        binding.apply {
-            if (progressCircular.visibility == View.GONE) {
-                progressCircular.visibility = View.VISIBLE
-                controlButton.text = "Stop"
-            } else {
-                progressCircular.visibility = View.GONE
-                controlButton.text = "Start"
-            }
-        }
+    private fun getStudent(): Student {
+        return Student(1, "Nguyen Quang Minh", "nguyenquangminh570@gmail.com")
     }
-
 
 }
